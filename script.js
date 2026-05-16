@@ -1,28 +1,28 @@
 // This is the the first section of the code where the option is automatically selected by the system.
 function getComputerChoice() {
-  let num = Math.floor(Math.random() * 3); // the function math.floor Always Rounds Down
-  if (num == 0) {
-    num = "Rock";
-  } else if (num == 1) {
-    num = "Paper";
+  let compInput = Math.floor(Math.random() * 3); // the function math.floor Always Rounds Down
+  if (compInput == 0) {
+    compInput = "Rock";
+  } else if (compInput == 1) {
+    compInput = "Paper";
   } else {
-    num = "Scissor";
+    compInput = "Scissor";
   }
 
-  return num;
+  return compInput;
 }
 console.log(getComputerChoice());
 
 //This is the second section of the game where the user can manually select any option.
-let hSelect = prompt("Type a number", "");
-function getHumanChoice() {
-  if (hSelect === "1") {
-    hSelect = "Rock";
-  } else if (hSelect === "2") {
-    hSelect = "Paper";
-  } else {
-    hSelect = "Scissor";
-  }
-  return hSelect;
+// human select
+
+function getHumanChoice(hChoice) {
+  let strInd = hChoice.charAt(0);
+  let capitalized = strInd.toUpperCase();
+  let restOfString = hChoice.slice(1).toLowerCase();
+
+  return capitalized + restOfString;
 }
-console.log(getHumanChoice());
+
+const message = prompt("Input Your Choice");
+console.log(getHumanChoice(message));
