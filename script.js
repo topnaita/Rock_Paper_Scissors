@@ -1,5 +1,9 @@
-// This is the the first section of the code where the option is automatically selected by the system.
-function getComputerChoice(compChoice) {
+/* This is the the first section of the code where the option 
+is automatically selected by the system.*/
+
+function getComputerChoice() {
+  compChoice = Math.floor(Math.random() * 3); // this code round the random to back to near integer
+
   if (compChoice === 0) {
     compChoice = "Rock";
   } else if (compChoice === 1) {
@@ -11,39 +15,35 @@ function getComputerChoice(compChoice) {
   return compChoice;
 }
 
-const pcAuto = (compChoice = Math.floor(Math.random() * 3)); // the function math.floor Always Rounds Down
-console.log(getComputerChoice(pcAuto));
+// console.log(getComputerChoice());
 
-//This is the second section of the game where the user can manually select any option.
-// human select
+//This is the second section of the code where the user must select an option.
 
-function getHumanChoice(hChoice) {
+function getHumanChoice() {
+  let hChoice = prompt("Input Your Choice");
   let lowerInput = hChoice.toLowerCase();
 
   if (lowerInput === "rock") {
     lowerInput = "Rock";
   } else if (lowerInput === "paper") {
-    hChoice = "Paper";
-  } else if (lowerInput === "scissor") lowerInput = "Scissor";
-
+    lowerInput = "Paper";
+  } else if (lowerInput === "scissor") {
+    lowerInput = "Scissor";
+  }
   return lowerInput;
 }
 
-const message = prompt("Input Your Choice");
-console.log(getHumanChoice(message));
+// console.log(getHumanChoice());
 
-// This is the third section to start comparing one outcome of the previous functions.
+//This is the third section to start comparing one outcome of the previous functions.
 
 let humanScore = 0;
 let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
-  let pOutcome;
-  if (humanChoice === "rock" && computerChoice === 1) {
-    pOutcome = "You lose! Paper beats Rock";
+  if (humanChoice === "Rock" && computerChoice === "Paper") {
+    return "You lose! Paper beats Rock";
   }
-
-  return pOutcome;
 }
 
 const humanSelection = getHumanChoice();
