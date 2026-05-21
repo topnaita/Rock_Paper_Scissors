@@ -46,6 +46,8 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
+computerScore++;
+
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 console.log(playRound(humanSelection, computerSelection));
