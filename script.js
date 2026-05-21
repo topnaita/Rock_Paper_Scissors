@@ -42,11 +42,10 @@ let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
   if (humanChoice === "Rock" && computerChoice === "Paper") {
+    computerScore++;
     return "You lose! Paper beats Rock";
   }
 }
-
-computerScore++;
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
