@@ -37,16 +37,26 @@ function getHumanChoice() {
 
 //This is the third section to start comparing one outcome of the previous functions.
 
-let humanScore = 0;
-let computerScore = 0;
+function playGame() {
+  const callPlayRound = playRound();
 
-function playRound(humanChoice, computerChoice) {
-  if (humanChoice === "Rock" && computerChoice === "Paper") {
-    computerScore++;
-    return "You lose! Paper beats Rock";
+  let humanScore = 0;
+  let computerScore = 0;
+
+  function playRound(humanChoice, computerChoice) {
+    if (
+      (humanChoice === "Rock" && computerChoice === "Paper") ||
+      (humanChoice === "Scissor" && computerChoice === "Rock") ||
+      (humanChoice === "Paper" && computerChoice === "Scissor")
+    ) {
+      computerScore++;
+      return "You lose!";
+    } else {
+      humanScore++;
+      return "You win!";
+    }
   }
+  const humanSelection = getHumanChoice();
+  const computerSelection = getComputerChoice();
+  playRound(humanSelection, computerSelection);
 }
-
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-console.log(playRound(humanSelection, computerSelection));
