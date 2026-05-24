@@ -38,25 +38,30 @@ function getHumanChoice() {
 //This is the third section to start comparing one outcome of the previous functions.
 
 function playGame() {
-  const callPlayRound = playRound();
-
-  let humanScore = 0;
-  let computerScore = 0;
-
   function playRound(humanChoice, computerChoice) {
-    if (
+    let humanScore = 0;
+    let computerScore = 0;
+
+    if (humanChoice === computerChoice) {
+      console.log(
+        `Its a tie! You both chose ${humanChoice} and ${computerChoice}`,
+      );
+    } else if (
       (humanChoice === "Rock" && computerChoice === "Paper") ||
       (humanChoice === "Scissor" && computerChoice === "Rock") ||
       (humanChoice === "Paper" && computerChoice === "Scissor")
     ) {
       computerScore++;
-      return "You lose!";
+
+      console.log("You lose!");
     } else {
       humanScore++;
-      return "You win!";
+      console.log("You win!");
     }
   }
   const humanSelection = getHumanChoice();
   const computerSelection = getComputerChoice();
+
   playRound(humanSelection, computerSelection);
 }
+playGame();
