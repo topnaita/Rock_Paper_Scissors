@@ -38,10 +38,11 @@ function getHumanChoice() {
 //This is the third section to start comparing one outcome of the previous functions.
 
 function playGame() {
-  function playRound(humanChoice, computerChoice) {
-    let humanScore = 0;
-    let computerScore = 0;
+  let humanScore = 0;
+  let computerScore = 0;
+  let round = 5;
 
+  function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
       console.log(
         `Its a tie! You both chose ${humanChoice} and ${computerChoice}`,
@@ -53,12 +54,13 @@ function playGame() {
     ) {
       computerScore++;
 
-      console.log("You lose!");
+      console.log(`You lose ${computerChoice} beats ${humanChoice}`);
     } else {
       humanScore++;
-      console.log("You win!");
+      console.log(`You win! ${humanChoice} beats ${computerChoice}`);
     }
   }
+
   const humanSelection = getHumanChoice();
   const computerSelection = getComputerChoice();
 
