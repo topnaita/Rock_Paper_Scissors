@@ -1,6 +1,4 @@
-/* This is the the first section of the code where the option 
-is automatically selected by the system.*/
-
+//Computer Choice
 function getComputerChoice() {
   compChoice = Math.floor(Math.random() * 3); // this code round the random to back to near integer
 
@@ -17,7 +15,7 @@ function getComputerChoice() {
 
 // console.log(getComputerChoice());
 
-//This is the second section of the code where the user must select an option.
+//human choice
 
 function getHumanChoice() {
   let hChoice = prompt("Input Your Choice");
@@ -35,8 +33,7 @@ function getHumanChoice() {
 
 // console.log(getHumanChoice());
 
-//This is the third section to start comparing one outcome of the previous functions.
-
+//Game logic
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
@@ -54,16 +51,26 @@ function playGame() {
     ) {
       computerScore++;
 
-      console.log(`You lose ${computerChoice} beats ${humanChoice}`);
+      //console.log(`You lose ${computerChoice} beats ${humanChoice}`);
     } else {
       humanScore++;
-      console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+      //console.log(`You win! ${humanChoice} beats ${computerChoice}`);
     }
   }
 
-  const humanSelection = getHumanChoice();
-  const computerSelection = getComputerChoice();
-
-  playRound(humanSelection, computerSelection);
+  for (i = 0; i <= round; i++) {
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    if (humanScore === 3) {
+      console.log(
+        `You won Human score is ${humanScore} and computed Score is ${computerScore} `,
+      );
+    } else if (computerScore === 3) {
+      console.log(
+        `You lose computer score is ${computerScore} and yours is ${humanScore}`,
+      );
+    }
+  }
 }
 playGame();
