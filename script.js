@@ -13,8 +13,6 @@ function getComputerChoice() {
   return compChoice;
 }
 
-// console.log(getComputerChoice());
-
 //human choice
 
 const getHumanChoice = () => {
@@ -22,8 +20,6 @@ const getHumanChoice = () => {
   let lowerInput = hChose.toLocaleLowerCase();
   return lowerInput;
 };
-
-// console.log(getHumanChoice());
 
 //Game logic
 function playGame() {
