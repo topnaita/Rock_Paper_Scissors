@@ -3,11 +3,11 @@ function getComputerChoice() {
   compChoice = Math.floor(Math.random() * 3); // this code round the random to back to near integer
 
   if (compChoice === 0) {
-    compChoice = "Rock";
+    compChoice = "rock";
   } else if (compChoice === 1) {
-    compChoice = "Paper";
+    compChoice = "paper";
   } else {
-    compChoice = "Scissor";
+    compChoice = "scissor";
   }
 
   return compChoice;
@@ -17,19 +17,11 @@ function getComputerChoice() {
 
 //human choice
 
-function getHumanChoice() {
-  let hChoice = prompt("Input Your Choice");
-  let lowerInput = hChoice.toLowerCase();
-
-  if (lowerInput === "rock") {
-    lowerInput = "Rock";
-  } else if (lowerInput === "paper") {
-    lowerInput = "Paper";
-  } else if (lowerInput === "scissor") {
-    lowerInput = "Scissor";
-  }
+const getHumanChoice = () => {
+  const hChose = prompt("Enter your Choice");
+  let lowerInput = hChose.toLocaleLowerCase();
   return lowerInput;
-}
+};
 
 // console.log(getHumanChoice());
 
@@ -45,9 +37,9 @@ function playGame() {
         `Its a tie! You both chose ${humanChoice} and ${computerChoice}`,
       );
     } else if (
-      (humanChoice === "Rock" && computerChoice === "Paper") ||
-      (humanChoice === "Scissor" && computerChoice === "Rock") ||
-      (humanChoice === "Paper" && computerChoice === "Scissor")
+      (humanChoice === "rock" && computerChoice === "paper") ||
+      (humanChoice === "scissor" && computerChoice === "rock") ||
+      (humanChoice === "paper" && computerChoice === "scissor")
     ) {
       computerScore++;
 
