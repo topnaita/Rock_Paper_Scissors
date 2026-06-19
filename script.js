@@ -17,40 +17,28 @@ function getComputerChoice() {
  that call your playRound function with the correct playerSelection every time a 
  button is clicked. (you can keep the console.logs for this step)*/
 
-// const getHumanChoice = () => {
-//   const btnRock = document.getElementById("rock");
-//   const btnPaper = document.getElementById("paper");
-//   const btnScissor = document.getElementById("scissor");
-
-//   btnRock.addEventListener("click", (event) => {
-//     let result = "rock";
-
-//     return console.log(result);
-//   });
-
-//   btnPaper.addEventListener("click", (event) => {
-//     return console.log("paper");
-//   });
-
-//   btnScissor.addEventListener("click", (event) => {
-//     return console.log("scissor");
-//   });
-// };
 //human choice
-
-// function getHumanChoice() {
-//   const hChose = prompt("Enter your Choice");
-//   let lowerInput = hChose.toLocaleLowerCase();
-//   return lowerInput;
-// }
-
 const getHumanChoice = () => {
-  // Switch human selection to arrow function
-  const hChose = prompt("Enter your Choice");
-  let lowerInput = hChose.toLocaleLowerCase();
-  return lowerInput;
-};
+  const btnRock = document.querySelector("#rock");
+  const btnPaper = document.querySelector("#paper");
+  const btnScissor = document.querySelector("#scissor");
 
+  btnRock.addEventListener("click", () =>
+    playRound("rock", getComputerChoice()),
+  );
+  btnPaper.addEventListener("click", () =>
+    playRound("paper", getComputerChoice()),
+  );
+  btnScissor.addEventListener("click", () =>
+    playRound("scissor", getComputerChoice()),
+  );
+
+  // Switch human selection to arrow function
+  // const hChose = prompt("Enter your Choice");
+  // let lowerInput = hChose.toLocaleLowerCase();
+  // return lowerInput;
+};
+getHumanChoice();
 //Game logic
 // function playGame() {
 //   let humanScore = 0;
@@ -76,10 +64,9 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+// const humanSelection = getHumanChoice();
+// const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
 // const outcome = playRound(getHumanChoice, getComputerChoice);
 // console.log(playRound);
 
