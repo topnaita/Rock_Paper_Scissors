@@ -38,6 +38,7 @@ const getHumanChoice = () => {
   // let lowerInput = hChose.toLocaleLowerCase();
   // return lowerInput;
 };
+
 getHumanChoice();
 //Game logic
 // function playGame() {
@@ -45,11 +46,15 @@ getHumanChoice();
 //   let computerScore = 0;
 //   let round = 5;
 
+//Add a div for displaying results and change all of your console.logs into DOM methods.
+
 function playRound(humanChoice, computerChoice) {
+  const container = document.querySelector("#container");
+  const para = document.createElement("p");
+  const btn = document.createElement("button");
+
   if (humanChoice === computerChoice) {
-    console.log(
-      `Its a tie! You both chose ${humanChoice} and ${computerChoice}`,
-    );
+    para.textContent = `Its a tie! You both chose ${humanChoice} and ${computerChoice}`;
   } else if (
     (humanChoice === "rock" && computerChoice === "paper") ||
     (humanChoice === "scissor" && computerChoice === "rock") ||
@@ -57,11 +62,20 @@ function playRound(humanChoice, computerChoice) {
   ) {
     // computerScore++;
 
-    console.log(`You lose ${computerChoice} beats ${humanChoice}`);
+    para.textContent = `You lose ${computerChoice} beats ${humanChoice}`;
   } else {
     // humanScore++;
-    console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+    para.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
   }
+
+  container.appendChild(para);
+  container.appendChild(btn);
+  btn.textContent = "Delete";
+
+  btn.addEventListener("click", () => {
+    container.removeChild(para);
+    container.removeChild(btn);
+  });
 }
 
 // const humanSelection = getHumanChoice();
@@ -69,6 +83,8 @@ function playRound(humanChoice, computerChoice) {
 
 // const outcome = playRound(getHumanChoice, getComputerChoice);
 // console.log(playRound);
+
+//Old login using console log
 
 // 1.For now, remove the logic that plays exactly five rounds.
 
@@ -88,3 +104,21 @@ function playRound(humanChoice, computerChoice) {
 // }
 // }
 // playGame();
+// function playRound(humanChoice, computerChoice) {
+//   if (humanChoice === computerChoice) {
+//     console.log(
+//       `Its a tie! You both chose ${humanChoice} and ${computerChoice}`,
+//     );
+//   } else if (
+//     (humanChoice === "rock" && computerChoice === "paper") ||
+//     (humanChoice === "scissor" && computerChoice === "rock") ||
+//     (humanChoice === "paper" && computerChoice === "scissor")
+//   ) {
+//     // computerScore++;
+
+//     console.log(`You lose ${computerChoice} beats ${humanChoice}`);
+//   } else {
+//     // humanScore++;
+//     console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+//   }
+// }
