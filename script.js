@@ -53,6 +53,10 @@ function playRound(humanChoice, computerChoice) {
   const btnClear = document.querySelector("#btnClear");
   const result = document.createElement("p");
 
+  if (humanScore === 5 || computerScore === 5) {
+    return false;
+  }
+
   if (humanChoice === computerChoice) {
     para.textContent = `Its a tie! You both chose ${humanChoice} and ${computerChoice}`;
   } else if (
@@ -70,17 +74,19 @@ function playRound(humanChoice, computerChoice) {
 
   for (i = 0; i <= round; i++) {
     if (humanScore === 5) {
-      result.textContent = `You won Human score is ${humanScore} and computed Score is ${computerScore} `;
-      break;
+      result.textContent = `You won Human score is ${humanScore} and computed Score is ${computerScore}`;
+
+      continue;
     } else if (computerScore === 5) {
       result.textContent = `You lose computer score is ${computerScore} and yours is ${humanScore}`;
-      break;
     }
   }
 
   btnClear.addEventListener("click", () => {
     para.textContent = "";
     result.textContent = "";
+    humanScore = 0;
+    computerScore = 0;
   });
 
   container.appendChild(para);
@@ -119,3 +125,13 @@ function playRound(humanChoice, computerChoice) {
 //     console.log(`You win! ${humanChoice} beats ${computerChoice}`);
 //   }
 // }
+
+//  for (i = 0; i <= round; i++) {
+//     if (humanScore === 5) {
+//       result.textContent = `You won Human score is ${humanScore} and computed Score is ${computerScore} `;
+//       break;
+//     } else if (computerScore === 5) {
+//       result.textContent = `You lose computer score is ${computerScore} and yours is ${humanScore}`;
+//       break;
+//     }
+//   }
