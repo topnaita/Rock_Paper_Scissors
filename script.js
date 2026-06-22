@@ -41,17 +41,17 @@ const getHumanChoice = () => {
 
 getHumanChoice();
 //Game logic
-// function playGame() {
-//   let humanScore = 0;
-//   let computerScore = 0;
-//   let round = 5;
 
 //Add a div for displaying results and change all of your console.logs into DOM methods.
+let humanScore = 0;
+let computerScore = 0;
+const round = 5;
 
 function playRound(humanChoice, computerChoice) {
   const container = document.querySelector("#container");
   const para = document.createElement("p");
-  const btn = document.createElement("button");
+  const btnClear = document.querySelector("#btnClear");
+  const result = document.createElement("p");
 
   if (humanChoice === computerChoice) {
     para.textContent = `Its a tie! You both chose ${humanChoice} and ${computerChoice}`;
@@ -60,23 +60,34 @@ function playRound(humanChoice, computerChoice) {
     (humanChoice === "scissor" && computerChoice === "rock") ||
     (humanChoice === "paper" && computerChoice === "scissor")
   ) {
-    // computerScore++;
+    computerScore++;
 
     para.textContent = `You lose ${computerChoice} beats ${humanChoice}`;
   } else {
-    // humanScore++;
+    humanScore++;
     para.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
   }
 
-  container.appendChild(para);
-  container.appendChild(btn);
-  btn.textContent = "Delete";
+  for (i = 0; i <= round; i++) {
+    if (humanScore === 5) {
+      result.textContent = `You won Human score is ${humanScore} and computed Score is ${computerScore} `;
+      break;
+    } else if (computerScore === 5) {
+      result.textContent = `You lose computer score is ${computerScore} and yours is ${humanScore}`;
+      break;
+    }
+  }
 
-  btn.addEventListener("click", () => {
-    container.removeChild(para);
-    container.removeChild(btn);
+  btnClear.addEventListener("click", () => {
+    para.textContent = "";
+    result.textContent = "";
   });
+
+  container.appendChild(para);
+  container.appendChild(result);
 }
+
+//Display the running score, and announce a winner of the game once one player reaches 5 points.
 
 // const humanSelection = getHumanChoice();
 // const computerSelection = getComputerChoice();
@@ -88,20 +99,6 @@ function playRound(humanChoice, computerChoice) {
 
 // 1.For now, remove the logic that plays exactly five rounds.
 
-// for (i = 0; i <= round; i++) {
-//   const humanSelection = getHumanChoice();
-//   const computerSelection = getComputerChoice();
-//   playRound(humanSelection, computerSelection);
-//   if (humanScore === 3) {
-//     console.log(
-//       `You won Human score is ${humanScore} and computed Score is ${computerScore} `,
-//     );
-//   } else if (computerScore === 3) {
-//     console.log(
-//       `You lose computer score is ${computerScore} and yours is ${humanScore}`,
-//     );
-//   }
-// }
 // }
 // playGame();
 // function playRound(humanChoice, computerChoice) {
