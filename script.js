@@ -69,7 +69,7 @@ function playRound(humanChoice, computerChoice) {
 
   for (i = 0; i <= round; i++) {
     if (humanScore === 5) {
-      result.textContent = `You won Human score is ${humanScore} and computed Score is ${computerScore}`;
+      result.textContent = `You won Player score is ${humanScore} and computed Score is ${computerScore}`;
     } else if (computerScore === 5) {
       result.textContent = `You lose computer score is ${computerScore} and yours is ${humanScore}`;
     }
@@ -82,9 +82,10 @@ function playRound(humanChoice, computerChoice) {
     //This eventLis, clear text and reset counter variable we can star over the game.
     para.textContent = "";
     result.textContent = "";
-    counterScoreHuman.textContent = "";
     humanScore = 0;
     computerScore = 0;
+    playerScore.textContent = "";
+    machineScore.textContent = "";
   });
 
   container.appendChild(para);
