@@ -69,9 +69,9 @@ function playRound(humanChoice, computerChoice) {
 
   for (i = 0; i <= round; i++) {
     if (humanScore === 5) {
-      result.textContent = `You won Player score is ${humanScore} and computed Score is ${computerScore}`;
+      result.textContent = `YOU WON PLAYER SCORE IS: ${humanScore} AND COMPUTER SCORE IS: ${computerScore}`;
     } else if (computerScore === 5) {
-      result.textContent = `You lose computer score is ${computerScore} and yours is ${humanScore}`;
+      result.textContent = `YOU LOSE COMPUTER SCORE IS: ${computerScore} AND YOURS IS: ${humanScore}`;
     }
   }
 
@@ -86,6 +86,8 @@ function playRound(humanChoice, computerChoice) {
     computerScore = 0;
     playerScore.textContent = "";
     machineScore.textContent = "";
+    playerScore.textContent = `Player Score = ${humanScore}`;
+    machineScore.textContent = `Computer Score = ${computerScore}`;
   });
 
   container.appendChild(para);
